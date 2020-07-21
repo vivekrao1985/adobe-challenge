@@ -28,7 +28,6 @@ class PDFLoader extends Component {
         event.persist();
         this.viewSDKClient.ready().then(() => {
             const files = event.target.files;
-            console.log("Loaded!!!");
             if (files.length > 0 && this.isValidPDF(files[0])) {
                 const fileName = files[0].name;
                 const reader = new FileReader();
