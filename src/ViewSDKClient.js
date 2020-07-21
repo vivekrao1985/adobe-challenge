@@ -1,8 +1,14 @@
 class ViewSDKClient {
     constructor() {
         this.readyPromise = new Promise((resolve) => {
+            console.log("Loaded!!!");
             if (window.AdobeDC) {
                 resolve();
+            } else {
+                /* Wait for Adobe Document Services PDF Embed API to be ready */
+                document.addEventListener("adobe_dc_view_sdk.ready", () => {
+                    resolve();
+                });
             }
         });
         this.adobeDCView = undefined;
